@@ -1,0 +1,123 @@
+-----------------------------------------------------------------------
+CREATE TABLE dept
+(
+deptno INT PRIMARY KEY,
+dname VARCHAR(20),
+loc VARCHAR(10)
+);
+
+INSERT INTO dept VALUES (40,'ACCOUNTING','NEW YORK');	
+INSERT INTO dept VALUES (20,'RESEARCH','DALLAS');
+INSERT INTO dept VALUES (30,'SALES','CHICAGO');
+INSERT INTO dept VALUES (10,'OPERATIONS','BOSTON');
+
+
+CREATE TABLE emp
+(
+empno INT PRIMARY KEY,  -- unique and not null
+ename VARCHAR(20) NOT NULL,  -- cannot leave blank
+job VARCHAR(10) DEFAULT 'CLERK',  -- if not job is entered SQL will put Clerk 
+mgr INT,
+hiredate DATE,
+sal DECIMAL(9,2) check(sal>0),  -- check if salary is negative
+comm DECIMAL(7,2),
+deptno INT,
+foreign key (deptno) references dept (deptno)  -- set foreign key constraint on the dept
+);
+
+INSERT INTO emp VALUES (7369,'SMITH','CLERK',7902,'17-12-1980',800,NULL,20);  
+INSERT INTO emp VALUES (7499,'ALLEN','SALESMAN',7698,'20-02-1981',1600,300,30);
+INSERT INTO emp VALUES (7521,'WARD','SALESMAN',7698,'22-02-1981',1250,500,30); 
+INSERT INTO emp VALUES (7566,'JONES','MANAGER',7839,'02-04-1981',2975,NULL,20);
+INSERT INTO emp VALUES (7654,'MARTIN','SALESMAN',7698,'28-09-1981',1250,1400,30);
+INSERT INTO emp VALUES (7698,'BLAKE','MANAGER',7839,'01-05-1981',2850,NULL,30);
+INSERT INTO emp VALUES (7782,'CLARK','MANAGER',7839,'09-06-1981',2450,NULL,10);
+INSERT INTO emp VALUES (7788,'SCOTT','ANALYST',7566,'19-04-1987',3000,NULL,20);
+INSERT INTO emp VALUES (7839,'KING','PRESIDENT',NULL,'17-11-1981',5000,NULL,10);
+INSERT INTO emp VALUES (7844,'TURNER','SALESMAN',7698,'08-09-1981',1500,0,30);
+INSERT INTO emp VALUES (7876,'ADAMS','CLERK',7788,'23-05-1987',1100,NULL,20);
+INSERT INTO emp VALUES (7900,'JAMES','CLERK',7698,'03-12-1981',950,NULL,30);  
+INSERT INTO emp VALUES (7902,'FORD','ANALYST',7566,'03-12-1981',3000,NULL,20);
+INSERT INTO emp VALUES (7934,'MILLER','CLERK',7782,'23-01-1981',1300,NULL,10);
+
+
+
+INSERT INTO emp VALUES (7369,'SMITH','CLERK',7902,'17-DEC-80',800,NULL,20);
+INSERT INTO emp VALUES (7499,'ALLEN','SALESMAN',7698,'20-FEB-81',1600,300,30);
+INSERT INTO emp VALUES (7521,'WARD','SALESMAN',7698,'22-FEB-81',1250,500,30);
+INSERT INTO emp VALUES (7566,'JONES','MANAGER',7839,'02-APR-81',2975,NULL,20);
+INSERT INTO emp VALUES (7654,'MARTIN','SALESMAN',7698,'28-SEP-81',1250,1400,30);
+INSERT INTO emp VALUES (7698,'BLAKE','MANAGER',7839,'01-MAY-81',2850,NULL,30);
+INSERT INTO emp VALUES (7782,'CLARK','MANAGER',7839,'09-JUN-81',2450,NULL,10);
+INSERT INTO emp VALUES (7788,'SCOTT','ANALYST',7566,'19-APR-87',3000,NULL,20);
+INSERT INTO emp VALUES (7839,'KING','PRESIDENT',NULL,'17-NOV-81',5000,NULL,10);
+INSERT INTO emp VALUES (7844,'TURNER','SALESMAN',7698,'08-SEP-81',1500,0,30);
+INSERT INTO emp VALUES (7876,'ADAMS','CLERK',7788,'23-MAY-87',1100,NULL,20);
+INSERT INTO emp VALUES (7900,'JAMES','CLERK',7698,'03-DEC-81',950,NULL,30);
+INSERT INTO emp VALUES (7902,'FORD','ANALYST',7566,'03-DEC-81',3000,NULL,20);
+INSERT INTO emp VALUES (7934,'MILLER','CLERK',7782,'23-JAN-81',1300,NULL,10);
+
+
+///////////////////////////////////////////////
+
+create TABLE SALESPEOPLE(
+   snum int primary key,
+   sname varchar(20),
+   city varchar(20),
+   comm decimal(3,2) 
+);
+
+insert into SALESPEOPLE values (1001,'Peel','London',.12);
+insert into SALESPEOPLE values (1002,'Serres','San Jose',.13);
+insert into SALESPEOPLE values (1004,'Motika','London',.11);
+insert into SALESPEOPLE values (1007,'Rafkin','Barcelona',.15);
+insert into SALESPEOPLE values (1003,'Axelrod','New york',.1);
+
+create table orders(
+onum int primary key,
+amt decimal (7,2),
+odate date,
+cnum int ,
+snum int ,
+foreign key (Cnum) references cust (cnum),
+foreign key (snum) references SALESPEOPLE (snum)
+);
+
+insert into orders values(3001, 18.69, '1994-10-03', 2008, 1007);
+insert into orders values(3003, 767.19, '1994-10-03', 2001, 1001);
+insert into orders values(3002, 1900.10, '1994-10-03', 2007, 1004);
+insert into orders values(3005, 5160.45 , '1994-10-03', 2003, 1002);
+insert into orders values(3006, 1098.16, '1994-10-04', 2008, 1007);
+insert into orders values(3009, 1713.23 , '1994-10-04', 2002, 1003);
+insert into orders values(3007, 75.75 , '1994-10-05', 2004, 1002);
+insert into orders values(3008, 4723.00 , '1994-10-05', 2006, 1001);
+insert into orders values(3010, 1309.95  , '1994-10-06', 2004, 1002);
+insert into orders values(3011, 9891.88  , '1994-10-06', 2006, 1001);
+
+create table cust(
+cnum int primary key,
+cname varchar(20),
+city varchar (20),
+rating int,
+snum int,
+foreign key (snum) references salespeople (snum)
+);
+
+insert into cust values (2001, 'Hoffman', 'London', 100, 1001);
+insert into cust values (2002, 'Giovanne', 'Rome', 200, 1003);
+insert into cust values (2003, 'Liu', 'San Jose', 300, 1002);
+insert into cust values (2004, 'Grass', 'Berlin', 100, 1002);
+insert into cust values (2006, 'Clemens', 'London', 300, 1007);
+insert into cust values (2007, 'Pereira', 'Rome', 100, 1004);
+insert into cust values (2008, 'James', 'London', 200, 1007);
+------------------------------------------------------------------------------------------------------------
+
+
+
+Write a query to match the salespeople to the customers according to the city they are living.
+Write a query to select the names of customers and the salespersons who are providing service to them.
+Write a query to find out all orders by customers not located in the same cities as that of their salespeople
+Write a query that lists each order number followed by name of customer who made that order
+Write a query that finds all pairs of customers having the same rating…………………
+Write a query to find out all pairs of customers served by a single salesperson………………..
+Write a query that produces all pairs of salespeople who are living in same city………………..

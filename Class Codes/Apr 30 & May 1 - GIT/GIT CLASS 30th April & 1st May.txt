@@ -1,0 +1,58 @@
+What is Git
+Basics of Version Control Tool (VCT)
+Types of VCT - Centralised VCT & DVCT
+Remote Repo (Github)
+Files from Local ----> Remote Repo
+Add Origin
+Create Branches (Concept of Branches)
+Git Clone
+
+Important Codes:
+
+Install git bash
+open git bash from start menu
+Change Directory in Command Prompt : cd
+Create a folder and right click inside it --> hit git bash here
+Open a Notepad
+Save it after writing few random lines
+***Now play with commands --->
+
+git init (Start git)
+ls -a  (Showing all files present in the directory)
+git add file.txt
+git status
+git rm --cached file.txt
+git status
+git add file.txt
+git commit -m "Message"
+git log
+git config user.email (Authentication)
+
+clear (To Clear the Screen of Command Prompt)
+cat file.txt (To see the message inside of the file)
+
+git remote add origin <link of remote repo>
+git push origin master
+git branch
+
+git clone <link of the remote repo which you wanna clone into your local repo>
+git pull origin master
+git branch
+
+
+***Create another folder and create a file
+Save it and add it in GIT
+***Now Codes ----
+git branch (You are in Master branch by default)
+git branch Branch1 (Branch1 created)
+git branch Branch2 (Branch2 created)
+git checkout Branch2 (Now you are in branch2)
+
+*** Create another file and save it and commit it
+*** create a Repo in remote acc and add origin
+
+git remote -v (to check whether you added origin or not)
+git push origin master
+git push origin Branch2
+
+
