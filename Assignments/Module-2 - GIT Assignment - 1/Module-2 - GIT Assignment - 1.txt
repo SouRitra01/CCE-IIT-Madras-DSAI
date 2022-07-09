@@ -1,0 +1,28 @@
+// Create a Folder "GIT Assignment"
+
+// Right click and hit on 'git bash here'
+
+//Writing following codes
+
+git init        //Start the git 
+notepad Code.txt   // Create the file and save it
+git status
+git add Code.txt
+git commit -m "First Commit"
+
+notepad Log.txt   // Create the file and save it
+git status
+git add Log.txt
+git commit -m "Second Commit"
+
+notepad Output.txt   // Create the file and save it
+git status
+git add Output.txt
+git commit -m "Third Commit"
+
+git log         // Checking all the actions
+
+git config user.email       //Authentication
+
+git remote add origin <link of remote repo>
+git push origin master
