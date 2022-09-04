@@ -1,0 +1,12 @@
+1. Import Required Libraries.
+2. Import inbuild dataset (load_digit) from sklearn.datasets.
+3. Read the data from dataset.
+4. Convert the array data into the picture format.
+5. Extract some picture from the dataset.
+6. Normalize the data
+7. Check the Covarience of the Dataset
+8. Find the Eigen Value and Vectors of the dataset.
+9. Calculation of Explained Variance from the eigenvalues
+10. Fit the data into the PCA
+11. Find the actual and Prediction value.
+12. Plot the misclassified data
